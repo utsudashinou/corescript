@@ -430,7 +430,7 @@ Sprite.prototype._speedUpCustomBlendModes = function(renderer) {
                 setTimeout(function () {
                     var f = stage._filters;
                     if (!f || !f[0]) {
-                        stage.filters = [Sprite.voidFilter];
+                        stage.filters = [];//[Sprite.voidFilter];
                         stage.filterArea = new PIXI.Rectangle(0, 0, Graphics.width, Graphics.height);
                     }
                 }, 0);

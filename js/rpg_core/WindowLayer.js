@@ -23,11 +23,11 @@ WindowLayer.prototype.initialize = function() {
     this._windowMask.beginFill(0xffffff, 1);
     this._windowMask.drawRect(0, 0, 0, 0);
     this._windowMask.endFill();
-    this._windowRect = this._windowMask.graphicsData[0].shape;
+    this._windowRect = this._windowMask.geometry.graphicsData[0].shape;
 
     this._renderSprite = null;
     this.filterArea = new PIXI.Rectangle();
-    this.filters = [WindowLayer.voidFilter];
+    this.filters = [];//[WindowLayer.voidFilter];
 
     //temporary fix for memory leak bug
     this.on('removed', this.onRemoveAsAChild);
@@ -37,7 +37,7 @@ WindowLayer.prototype.onRemoveAsAChild = function() {
     this.removeChildren();
 }
 
-WindowLayer.voidFilter = new PIXI.filters.VoidFilter();
+WindowLayer.voidFilter = new PIXI.filters.AlphaFilter();
 
 /**
  * The width of the window layer in pixels.

@@ -1105,17 +1105,17 @@ Graphics._createRenderer = function() {
     PIXI.dontSayHello = true;
     var width = this._width;
     var height = this._height;
-    var options = { view: this._canvas };
+    var options = { width, height, view: this._canvas };
     try {
         switch (this._rendererType) {
         case 'canvas':
-            this._renderer = new PIXI.CanvasRenderer(width, height, options);
+            this._renderer = new PIXI.CanvasRenderer(options);
             break;
         case 'webgl':
-            this._renderer = new PIXI.WebGLRenderer(width, height, options);
+            this._renderer = new PIXI.Renderer(options);
             break;
         default:
-            this._renderer = PIXI.autoDetectRenderer(width, height, options);
+            this._renderer = PIXI.autoDetectRenderer(options);
             break;
         }
 

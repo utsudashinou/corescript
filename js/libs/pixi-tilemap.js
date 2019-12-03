@@ -203,7 +203,7 @@ var pixi_tilemap;
         maxTextures: 4,
         bufferSize: 2048,
         boundSize: 1024,
-        boundCountPerBuffer: 4,
+        boundCountPerBuffer: 1,
         use32bitIndex: false,
         SCALE_MODE: PIXI.SCALE_MODES.LINEAR,
         DO_CLEAR: true
@@ -754,7 +754,7 @@ var pixi_tilemap;
                 len <<= 1;
             }
             this.ibLen = totalIndices;
-            this.indexBuffer.update(PIXI.utils.createIndicesForQuads(size, pixi_tilemap.Constant.use32bitIndex));
+            this.indexBuffer.update(PIXI.utils.createIndicesForQuads(size, pixi_tilemap.Constant.use32bitIndex ? new Uint32Array(size * 6) : undefined));
         };
         TileRenderer.prototype.getShader = function () {
             return this.rectShader;
