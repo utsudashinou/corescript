@@ -34,7 +34,7 @@
     "concat-with-sourcemaps": "^1.0.4",
     "cpx": "^1.5.0",
     "crc-32": "^1.0.2",
-    "http-server": "^0.9.0",
+    "http-server": "^0.11.1",
     "node-watch": "^0.4.1",
     "npm-run-all": "^4.0.0"
   }
